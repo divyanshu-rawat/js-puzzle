@@ -15,3 +15,45 @@
 ##
 
 ![alt tag](https://github.com/divyanshu-rawat/JS-Puzzle/blob/master/public/custom_images/abc.png)
+
+
+### Installation Instructions
+
+* Open a command prompt in the project's root directory.
+
+* Cd into that root folder you just cloned locally.
+
+* Open terminal in the current folder and to install all dependencies type 
+
+```javascript
+   npm install 
+```
+
+* Now typing 
+
+```javascript
+   http-start
+```
+
+.then Browser will be up and running :) 
+
+* For JS Lint Run ``` gulp lint ```
+
+* FOr JS COde Style RUN ``` gulp jscs ```
+
+##
+
+
+### Contributing
+
+1. Create your **_branch_**: `git checkout -b my-new-feature`
+
+2. **_Commit_** your changes: `git commit -m 'Add some feature'`
+
+3. **_Push_** to the branch: `git push origin my-new-feature`
+
+4. Send a **Pull Request**
+
+5. **_Enjoy!_**
+
+##
