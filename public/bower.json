@@ -1,0 +1,31 @@
+{
+  "name": "JS Game",
+  "authors": [
+    "divyanshu <divyanshu.r46956@gmail.com>",
+    "Y14UC085@lnmiit.ac.in"
+  ],
+  "description": "html,css,js,game",
+  "main": "index.html",
+  "keywords": [
+    "memorygame",
+    "udacity-project",
+    "js",
+    "html",
+    "css",
+    "bootstrap"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0"
+  }
+}
