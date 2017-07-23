@@ -38,9 +38,10 @@
 
 .then Browser will be up and running :) 
 
-* For JS Lint Run ``` gulp lint ```
+##
 
-* For JS Code Style RUN ``` gulp jscs ```
+For JS Lint ``` gulp lint ```
+For JS Code Style ``` gulp jscs ```
 
 ##
 
