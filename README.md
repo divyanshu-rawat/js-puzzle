@@ -33,7 +33,7 @@
 * Now typing 
 
 ```javascript
-   http-start
+   npm start
 ```
 
 .then Browser will be up and running :) 
