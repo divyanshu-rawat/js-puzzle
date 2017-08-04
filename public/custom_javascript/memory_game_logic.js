@@ -39,6 +39,7 @@ function swap(arr,y,x){
 
 function create_intial_puzzle(){
 
+	// set_timer();
 	tiles_flipped_count = 0;
 	var append_html = '';
     puzzleMemory.memory_tile_shuffle();
@@ -105,9 +106,25 @@ function clicked_card(card,value){
 	}
 }
 
+function restart() {
+
+	create_intial_puzzle();
+	window.timeStamp = Math.floor(Date.now() / 1000);
+}
+
+function set_timer(){
+	console.log(Math.floor(Date.now() / 1000) - timeStamp);
+	var x = document.getElementById('timer')
+	x.innerHTML = "Time spent : " + (Math.floor(Date.now() / 1000) - timeStamp);
+}
+
 window.onload = function() {
   create_intial_puzzle();
+  window.timeStamp = Math.floor(Date.now() / 1000);
+  setInterval(set_timer,1000);
 };
+
+
 
 
 

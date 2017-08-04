@@ -18,3 +18,11 @@
 	cursor:pointer;
 	text-align:center;
 }
+
+.navbar-margin{
+	margin: 7px !important;
+}
+
+#timer{
+	color: white;
+}
