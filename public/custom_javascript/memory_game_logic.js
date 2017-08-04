@@ -62,13 +62,13 @@ function clicked_card(card,value){
 		var y = document.getElementById('counter')
 		y.innerHTML = "Move Count: " + moveCounter;
 
-
+		// Hiding stars when user exceeds 20 Moves 
 		if (moveCounter > 20) {
 			var hide_star_one = document.getElementById('star_one');
 			hide_star_one.style.display = 'none';
 		}
 
-
+		// Hiding second star when user exceeds 30 Moves 
 		if (moveCounter > 30) {
 			var hide_star_two = document.getElementById('star_two');
 			hide_star_two.style.display = 'none';
@@ -99,22 +99,29 @@ function clicked_card(card,value){
 		
 				if(tiles_flipped_count == puzzleMemory.length){
 
+					// show Model when User wins the Game
 					$(document).ready(function(){
 			        	$("#myModal").modal();
 
+			        	// Close Model when user restarts Game
 			        	$('.restart_btn').on('click',function () {
 			        		$('#myModal').modal('hide');
 			        	})
 					});
 
+					// Clear Timer when user wins the Game
 					clearInterval(set_interval);
 
+					// Model Content showing total time taken by user
 					var total_time_taken = document.getElementById('timer').innerHTML;
 					var append_time_model = document.getElementById('modal_time');
 					append_time_model.innerHTML = total_time_taken;
 
+					// Model Content showing remainng stars
 					var star_left = document.querySelectorAll('.star_count');
 					// console.log(star_left);
+
+					// Condition to check unhidden stars
 					star_left.forEach(function(element) {
 						if(element.style.display  !== 'none'){ star_count++};
 					});
@@ -123,7 +130,7 @@ function clicked_card(card,value){
 
 					
 					model_star.innerHTML = "Star Rating : " + star_count;
-					document.getElementById('puzzle').innerHTML = "";
+					// document.getElementById('puzzle').innerHTML = "";
 				}
 		
 			} else {
@@ -157,18 +164,21 @@ function restart() {
 	var y = document.getElementById('counter')
 	y.innerHTML = "Move Count: " + moveCounter;
 
+	// Unhiding stars when game restarts
 	var show_star_one = document.getElementById('star_one');
 	show_star_one.style.display = 'block';
 
 	var show_star_two = document.getElementById('star_two');
 	show_star_two.style.display = 'block';
 
+	//  resetting timer when game restarts
 	set_interval = setInterval(set_timer,1000);
 }
 
 function set_timer(){
 	// console.log(Math.floor(Date.now() / 1000) - window.timeStamp);
 	var x = document.getElementById('timer')
+	// Logic for timer
 	x.innerHTML = "Time spent : " + (Math.floor(Date.now() / 1000) - window.timeStamp) + " Seconds";
 }
 
