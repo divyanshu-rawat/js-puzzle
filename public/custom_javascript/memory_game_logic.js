@@ -7,6 +7,8 @@ var comparison_array = [];
 var card_serial_id = [];
 var tiles_flipped_count = 0;
 var moveCounter = 0;
+var star_count = 0;
+var set_interval = setInterval(set_timer,1000);
 
 // The Array.prototype property represents the prototype for the Array constructor and allows you to add new properties and methods to all Array objects.
 /*
@@ -55,19 +57,19 @@ function create_intial_puzzle(){
 function clicked_card(card,value){
 
 	if(card.innerHTML == "" && comparison_array.length < 2){
-
+ 
 		moveCounter++;
 		var y = document.getElementById('counter')
 		y.innerHTML = "Move Count: " + moveCounter;
 
 
-		if (moveCounter > 6) {
+		if (moveCounter > 20) {
 			var hide_star_one = document.getElementById('star_one');
 			hide_star_one.style.display = 'none';
 		}
 
 
-		if (moveCounter > 10) {
+		if (moveCounter > 30) {
 			var hide_star_two = document.getElementById('star_two');
 			hide_star_two.style.display = 'none';
 		}
@@ -96,9 +98,32 @@ function clicked_card(card,value){
 				// Check to see if the whole puzzle is cleared
 		
 				if(tiles_flipped_count == puzzleMemory.length){
-					alert("Well Done You Won Generating New Puzzle :)");
+
+					$(document).ready(function(){
+			        	$("#myModal").modal();
+
+			        	$('.restart_btn').on('click',function () {
+			        		$('#myModal').modal('hide');
+			        	})
+					});
+
+					clearInterval(set_interval);
+
+					var total_time_taken = document.getElementById('timer').innerHTML;
+					var append_time_model = document.getElementById('modal_time');
+					append_time_model.innerHTML = total_time_taken;
+
+					var star_left = document.querySelectorAll('.star_count');
+					// console.log(star_left);
+					star_left.forEach(function(element) {
+						if(element.style.display  !== 'none'){ star_count++};
+					});
+
+					var model_star = document.getElementById('modal_star');
+
+					
+					model_star.innerHTML = "Star Rating : " + star_count;
 					document.getElementById('puzzle').innerHTML = "";
-					create_intial_puzzle();
 				}
 		
 			} else {
@@ -137,35 +162,20 @@ function restart() {
 
 	var show_star_two = document.getElementById('star_two');
 	show_star_two.style.display = 'block';
+
+	set_interval = setInterval(set_timer,1000);
 }
 
 function set_timer(){
-	console.log(Math.floor(Date.now() / 1000) - window.timeStamp);
+	// console.log(Math.floor(Date.now() / 1000) - window.timeStamp);
 	var x = document.getElementById('timer')
-	x.innerHTML = "Time spent : " + (Math.floor(Date.now() / 1000) - window.timeStamp);
+	x.innerHTML = "Time spent : " + (Math.floor(Date.now() / 1000) - window.timeStamp) + " Seconds";
 }
-
-// function star_generator(){
-
-// 		var x = document.getElementById('stars')
-//         // Get the value
-//         var val = parseFloat(x.html());
-//         // Make sure that the value is in 0 - 5 range, multiply to get width
-//         val = Math.round(val * 2) / 2;
-
-//         var size = Math.max(0, (Math.min(5, val))) * 16;
-//         // Create stars holder
-//         var span = $('<span />').width(size);
-//         // Replace the numerical value with stars
-//         $(this).html(span);
-
-// }
 
 window.onload = function() {
   create_intial_puzzle();
   window.timeStamp = Math.floor(Date.now() / 1000);
   // window.moveCounter = 0;
-  setInterval(set_timer,1000);
 };
 
 

@@ -13,6 +13,12 @@
       <!-- Latest compiled and minified CSS -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
    <!-- custom-stylesheets-javascript -->
 
@@ -27,30 +33,71 @@
 <body>
 	
   <nav class="navbar navbar-inverse">
+<!-- 
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Memory Game</a>
     </div>
 
-    <ul class="nav navbar-nav">
-        <li class="navbar-margin"><button type="button" class="btn btn-primary" onclick="restart();">Restart</button></li>
-        <li><a href="#"><span id="timer" class="white"></span></a></li>
-        <li><a href="#"><span id="counter" class="white"></span></a></li>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav navbar-nav">
+          <li class="navbar-margin"><button type="button" class="btn btn-primary" onclick="restart();">Restart</button></li>
+          <li><a href="#"><span id="timer" class="white"></span></a></li>
+          <li><a href="#"><span id="counter" class="white"></span></a></li>
 
-        <li><a href="#"><span  class="glyphicon glyphicon-star-empty white" id = "star_one"></span></a></li>
-        <li><a href="#"><span  class="glyphicon glyphicon-star-empty white" id = "star_two"></span></a></li>
-        <li><a href="#"><span  class="glyphicon glyphicon-star-empty white" id = "star_three"></span></a></li>
-    </ul>
+          <li><a href="#"><span  class="glyphicon glyphicon-star-empty white star_count" id = "star_one"></span></a></li>
+          <li><a href="#"><span  class="glyphicon glyphicon-star-empty white star_count" id = "star_two"></span></a></li>
+          <li><a href="#"><span  class="glyphicon glyphicon-star-empty white star_count" id = "star_three"></span></a></li>
+      </ul>
+    </div>
   </div>
 </nav>
 
   <div id="abc"></div>
 
     <div class="container">
-      <div id="puzzle" class="col-lg-12"></div>
+      <div id="puzzle" class="col-lg-12 col-md-12 col-xs-12 col-sm-12"></div>
     </div>
 
     <!-- <div class="abc"></div> -->
+
+
+<div class="container">
+
+    <!-- <h2>Modal Example</h2> -->
+    <!-- Trigger the modal with a button -->
+    <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Congratulations You Won !</h4>
+          </div>
+          <div class="modal-body">
+            <p id = "modal_star"></p>
+            <p id = "modal_time"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary restart_btn" onclick="restart();">Restart</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  
+</div>
+
+
 
 </body>
 
