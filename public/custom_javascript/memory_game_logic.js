@@ -6,6 +6,7 @@ var puzzleMemory = ['A','A','B','B','C','C','D','D','F','F','I','I','J','J','K',
 var comparison_array = [];
 var card_serial_id = [];
 var tiles_flipped_count = 0;
+var moveCounter = 0;
 
 // The Array.prototype property represents the prototype for the Array constructor and allows you to add new properties and methods to all Array objects.
 /*
@@ -54,6 +55,23 @@ function create_intial_puzzle(){
 function clicked_card(card,value){
 
 	if(card.innerHTML == "" && comparison_array.length < 2){
+
+		moveCounter++;
+		var y = document.getElementById('counter')
+		y.innerHTML = "Move Count: " + moveCounter;
+
+
+		if (moveCounter > 6) {
+			var hide_star_one = document.getElementById('star_one');
+			hide_star_one.style.display = 'none';
+		}
+
+
+		if (moveCounter > 10) {
+			var hide_star_two = document.getElementById('star_two');
+			hide_star_two.style.display = 'none';
+		}
+
 
 		card.style.background = '#FFF';
 		
@@ -110,17 +128,43 @@ function restart() {
 
 	create_intial_puzzle();
 	window.timeStamp = Math.floor(Date.now() / 1000);
+	moveCounter = 0;
+	var y = document.getElementById('counter')
+	y.innerHTML = "Move Count: " + moveCounter;
+
+	var show_star_one = document.getElementById('star_one');
+	show_star_one.style.display = 'block';
+
+	var show_star_two = document.getElementById('star_two');
+	show_star_two.style.display = 'block';
 }
 
 function set_timer(){
-	console.log(Math.floor(Date.now() / 1000) - timeStamp);
+	console.log(Math.floor(Date.now() / 1000) - window.timeStamp);
 	var x = document.getElementById('timer')
-	x.innerHTML = "Time spent : " + (Math.floor(Date.now() / 1000) - timeStamp);
+	x.innerHTML = "Time spent : " + (Math.floor(Date.now() / 1000) - window.timeStamp);
 }
+
+// function star_generator(){
+
+// 		var x = document.getElementById('stars')
+//         // Get the value
+//         var val = parseFloat(x.html());
+//         // Make sure that the value is in 0 - 5 range, multiply to get width
+//         val = Math.round(val * 2) / 2;
+
+//         var size = Math.max(0, (Math.min(5, val))) * 16;
+//         // Create stars holder
+//         var span = $('<span />').width(size);
+//         // Replace the numerical value with stars
+//         $(this).html(span);
+
+// }
 
 window.onload = function() {
   create_intial_puzzle();
   window.timeStamp = Math.floor(Date.now() / 1000);
+  // window.moveCounter = 0;
   setInterval(set_timer,1000);
 };
 
