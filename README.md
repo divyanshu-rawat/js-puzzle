@@ -61,4 +61,4 @@ For JS Code Style ``` gulp jscs ```
 ##
 
 
-![alt tag](https://github.com/divyanshu-rawat/JS-Puzzle/blob/master/public/custom_images/abc.png)
+![alt tag](https://github.com/divyanshu-rawat/JS-Puzzle/blob/master/public/custom_images/new_snap.png)
