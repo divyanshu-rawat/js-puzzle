@@ -62,14 +62,14 @@ function clicked_card(card,value){
 		var y = document.getElementById('counter')
 		y.innerHTML = "Move Count: " + moveCounter;
 
-		// Hiding stars when user exceeds 20 Moves 
-		if (moveCounter > 20) {
+		// Hiding stars when user exceeds 40 Moves 
+		if (moveCounter > 40) {
 			var hide_star_one = document.getElementById('star_one');
 			hide_star_one.style.display = 'none';
 		}
 
-		// Hiding second star when user exceeds 30 Moves 
-		if (moveCounter > 30) {
+		// Hiding second star when user exceeds 55 Moves 
+		if (moveCounter > 55) {
 			var hide_star_two = document.getElementById('star_two');
 			hide_star_two.style.display = 'none';
 		}
@@ -161,6 +161,7 @@ function restart() {
 	create_intial_puzzle();
 	window.timeStamp = Math.floor(Date.now() / 1000);
 	moveCounter = 0;
+	star_count = 0;
 	var y = document.getElementById('counter')
 	y.innerHTML = "Move Count: " + moveCounter;
 
