@@ -48,7 +48,7 @@ function create_intial_puzzle(){
     puzzleMemory.memory_tile_shuffle();
     // For appending HTML #writing html using js !
 	for(var i = 0; i < puzzleMemory.length; i++){
-		append_html += '<div class = "col-lg-2 custom_style_div" id="tile_'+i+'" onclick="clicked_card(this,\''+puzzleMemory[i]+'\')"></div>';
+		append_html += '<div class = "col-lg-2 col-md-2 col-sm-2 col-xs-2 custom_style_div" id="tile_'+i+'" onclick="clicked_card(this,\''+puzzleMemory[i]+'\')"></div>';
 	}
 	document.getElementById('puzzle').innerHTML = append_html;
 }
