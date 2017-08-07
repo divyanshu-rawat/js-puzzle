@@ -20,14 +20,14 @@ var set_interval = setInterval(set_timer,1000);
 */
 // Algorithm for random shuffling of Array. 
 
-Array.prototype.memory_tile_shuffle = function(){
+memory_tile_shuffle = function(puzzleMemory){
 
 	// console.log(this.length);
-    var x = this.length, y;
+    var x = puzzleMemory.length, y;
     while(--x > 0){
         y = Math.floor(Math.random() * (x+1));
         // console.log('shuffling',j);
-        swap(this,y,x);
+        swap(puzzleMemory,y,x);
         // console.log(this);
     }
 }
@@ -45,10 +45,10 @@ function create_intial_puzzle(){
 	// set_timer();
 	tiles_flipped_count = 0;
 	var append_html = '';
-    puzzleMemory.memory_tile_shuffle();
+    memory_tile_shuffle(puzzleMemory);
     // For appending HTML #writing html using js !
 	for(var i = 0; i < puzzleMemory.length; i++){
-		append_html += '<div class = "col-lg-2 col-md-2 col-sm-2 col-xs-2 custom_style_div" id="tile_'+i+'" onclick="clicked_card(this,\''+puzzleMemory[i]+'\')"></div>';
+		append_html += '<div class = "col-lg-2 col-md-2 col-sm-3 col-xs-3 custom_style_div" id="tile_'+i+'" onclick="clicked_card(this,\''+puzzleMemory[i]+'\')"></div>';
 	}
 	document.getElementById('puzzle').innerHTML = append_html;
 }
@@ -109,51 +109,69 @@ function clicked_card(card,value){
 			        	})
 					});
 
-					// Clear Timer when user wins the Game
-					clearInterval(set_interval);
-
-					// Model Content showing total time taken by user
-					var total_time_taken = document.getElementById('timer').innerHTML;
-					var append_time_model = document.getElementById('modal_time');
-					append_time_model.innerHTML = total_time_taken;
-
-					// Model Content showing remainng stars
-					var star_left = document.querySelectorAll('.star_count');
-					// console.log(star_left);
-
-					// Condition to check unhidden stars
-					star_left.forEach(function(element) {
-						if(element.style.display  !== 'none'){ star_count++};
-					});
-
-					var model_star = document.getElementById('modal_star');
-
-					
-					model_star.innerHTML = "Star Rating : " + star_count;
-					// document.getElementById('puzzle').innerHTML = "";
+					when_user_wins();
 				}
 		
 			} else {
 		
-				function revert(){
-				    // revert the tiles back over
-				    var card_one = document.getElementById(card_serial_id[0]);
-				    var card_two = document.getElementById(card_serial_id[1]);
-
-				    card_one.style.background = 'url(../custom_images/icon.jpg) no-repeat';
-				 
-            	    card_one.innerHTML = "";
-				    card_two.style.background = 'url(../custom_images/icon.jpg) no-repeat';
-		
-            	    card_two.innerHTML = "";
-				    // Clear both arrays
-				    comparison_array = [];
-            	    card_serial_id = [];
-				}
 				setTimeout(revert, 700);
 			}
 		}
 	}
+}
+
+
+
+function revert(){
+    // revert the tiles back over
+    var card_one = document.getElementById(card_serial_id[0]);
+    var card_two = document.getElementById(card_serial_id[1]);
+
+    card_one.style.background = 'url(../custom_images/icon.jpg) no-repeat';
+ 
+    card_one.innerHTML = "";
+    card_two.style.background = 'url(../custom_images/icon.jpg) no-repeat';
+
+    card_two.innerHTML = "";
+    // Clear both arrays
+    comparison_array = [];
+    card_serial_id = [];
+}
+
+
+function when_user_wins() {
+	
+	// Clear Timer when user wins the Game
+	clearInterval(set_interval);
+
+	// Model Content showing total time taken by user
+	var total_time_taken = document.getElementById('timer').innerHTML;
+	var append_time_model = document.getElementById('modal_time');
+	append_time_model.innerHTML = total_time_taken;
+
+	// Model Content showing remainng stars
+	var star_left = document.querySelectorAll('.star_count');
+	// console.log(star_left);
+
+	// Condition to check unhidden stars
+	star_left.forEach(function(element) {
+		if(element.style.display  !== 'none'){ star_count++};
+	});
+
+	var html = '';
+
+	for(var i = 0; i < star_count ; i++ ){
+		console.log(star_count);
+		html = html + '<span class="glyphicon glyphicon-star-empty"></span>'
+	}
+
+
+	var model_star = document.getElementById('modal_star');
+
+	
+	model_star.innerHTML = "Star Rating : " + html;
+	// document.getElementById('puzzle').innerHTML = "";
+
 }
 
 function restart() {
