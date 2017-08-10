@@ -97,6 +97,9 @@ function clicked_card(card,value){
 			        	$('.restart_btn').on('click',function () {
 			        		$('#myModal').modal('hide');
 			        	})
+
+			        		// Clear Timer when user wins the Game
+								clearInterval(set_interval);
 			
 
 					when_user_wins();
@@ -131,8 +134,7 @@ function revert(){
 
 function when_user_wins() {
 	
-	// Clear Timer when user wins the Game
-	clearInterval(set_interval);
+
 
 	// Model Content showing total time taken by user
 	var total_time_taken = document.getElementById('timer').innerHTML;
