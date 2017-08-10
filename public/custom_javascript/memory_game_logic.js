@@ -8,17 +8,7 @@ var card_serial_id = [];
 var tiles_flipped_count = 0;
 var moveCounter = 0;
 var star_count = 0;
-var set_interval = setInterval(set_timer,1000);
-
-// The Array.prototype property represents the prototype for the Array constructor and allows you to add new properties and methods to all Array objects.
-/*
-	//  Proof of Concept
-		Array.prototype.divyanshu = function () {
-				console.log(this);
-		}
-		puzzleMemory.divyanshu();
-*/
-// Algorithm for random shuffling of Array. 
+var set_interval = setInterval(set_timer,1000); 
 
 memory_tile_shuffle = function(puzzleMemory){
 
@@ -100,14 +90,14 @@ function clicked_card(card,value){
 				if(tiles_flipped_count == puzzleMemory.length){
 
 					// show Model when User wins the Game
-					$(document).ready(function(){
+	
 			        	$("#myModal").modal();
 
 			        	// Close Model when user restarts Game
 			        	$('.restart_btn').on('click',function () {
 			        		$('#myModal').modal('hide');
 			        	})
-					});
+			
 
 					when_user_wins();
 				}
