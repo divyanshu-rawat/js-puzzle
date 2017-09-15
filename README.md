@@ -41,10 +41,34 @@
 
 #### Using NPM
 
-```   
-   $ npm install js-game
+* create a package.json file using 
 
+```javascript
+   $ npm init -y
 ```
+
+then
+
+```javascript  
+   $ npm install js-game --save
+```
+
+* Cd into node_modules you will find folder named js-game.
+* Cd into js-game then follow below-mentioned steps.
+
+* Open terminal in the current folder and to install all dependencies type 
+
+```javascript
+   npm install 
+```
+
+* Now typing 
+
+```javascript
+   npm start
+```
+
+.then Browser will be up and running :) 
 
 ##
 
