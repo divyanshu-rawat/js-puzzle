@@ -20,7 +20,7 @@
   "author": "divyanshu rawat",
   "license": "MIT",
   "devDependencies": {
-    "browser-sync": "^2.18.13",
+    "browser-sync": "^2.26.6",
     "gulp": "^3.9.1",
     "gulp-jscs": "^4.0.0",
     "gulp-jshint": "^2.0.4",
