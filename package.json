@@ -27,7 +27,7 @@
     "gulp-notify": "^3.0.0",
     "gulp-notify-growl": "^1.0.2",
     "jscs": "^3.0.7",
-    "jshint": "^2.9.5",
+    "jshint": "^2.11.0",
     "jshint-stylish": "^2.2.1"
   }
 }
